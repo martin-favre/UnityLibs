@@ -1,9 +1,9 @@
-
+using UnityEngine;
 public class SyncronousTimer
 {
     private float timeout;
     private float startTime;
-    public SimpleTimer(float timeout)
+    public SyncronousTimer(float timeout)
     {
         this.timeout = timeout;
         Reset();
@@ -11,11 +11,11 @@ public class SyncronousTimer
 
     public bool IsDone()
     {
-        return startTime + timeout < SingletonProvider.MainTimeProvider.Time;
+        return startTime + timeout < Time.time;
     }
 
     public void Reset()
     {
-        startTime = SingletonProvider.MainTimeProvider.Time;
+        startTime = Time.time;
     }
 }
